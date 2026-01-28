@@ -1,3 +1,5 @@
+using System;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -14,22 +16,36 @@ namespace Solution
         // Start is called before the first frame update
         protected void GetRemainEnergy()
         {
-
+            
         }
 
         public virtual void Move(Vector2 direction)
         {
-            positionX = (int)(positionX+ direction.x);
-            positionY = (int)(positionY+ direction.y);
+            int toX =  (int)(positionX+ direction.x);
+            int toY = (int)(positionY+ direction.y);
 
-            transform.position = new Vector3(positionX,positionY,0);
-           
+            if (HasPlacement(toX,toY )) //|| HasPlacement(toX,toY) == null  
+            {
+                Debug.Log("Cant Move");
+                Identity identity = mapGenerator.mapdata[toX,toY];
+                identity.Hit(this);
 
+            }
+            else
+            {
+                mapGenerator.UpdatePositionIdentity(this,toX,toY);
+              TakeDamage(1);
+            }
         }
         // hasPlacement �׹��� true ����ա���ҧ������麹 map �����˹� x,y
+        public void UpdatePostition(Vector2 direction)
+        {
+            
+        }
         public bool HasPlacement(int x, int y)
         {
-            return false;
+            var cell = mapGenerator.GetMapData(x,y);
+            return cell != null;
         }
         
 
