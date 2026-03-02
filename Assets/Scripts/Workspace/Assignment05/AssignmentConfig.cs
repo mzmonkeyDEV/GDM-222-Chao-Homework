@@ -1,18 +1,18 @@
-namespace Assignment04
+namespace Assignment05
 {
     public class AssignmentConfig
     {
         /// <summary>
         /// Name of the assignment.
         /// </summary>  
-        public const string AssignmentName = "Assignment 05";
+        public const string AssignmentName = "Assignment 06 (Midterm 1)";
 
         /// <summary>
         /// Description of the assignment.
         /// </summary>
-        public const string AssignmentDescription = "Introduction to Sorting Algorithms including Selection Sort, Bubble Sort, and Insertion Sort. Implement sorting in both ascending and descending order, find the second largest number, and identify the longest consecutive sequence in an array.";
+        public const string AssignmentDescription = "Midterm Exam 1 for GI262 Data Structure and Algorithm";
 
-        public const string AssignmentResourceID = "bu.2025.sem-1.gi262.as05";
+        public const string AssignmentResourceID = "bu.2025.sem-1.gi262.as06";
 
         /// <summary>
         /// Version of the assignment.
