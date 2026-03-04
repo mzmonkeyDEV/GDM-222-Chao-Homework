@@ -59,6 +59,7 @@ namespace Solution
         // Start is called before the first frame update
         void Start()
         {
+            PlayerScore playerScore = JsonSaveLoadSystem.LoadGame();
             mapdata = new Identity[Rows, Cols];
             for (int x = -1; x < Rows + 1; x++)
             {
@@ -85,6 +86,8 @@ namespace Solution
             GameObject plyer = PlaceObject(0, 0, player.gameObject, null);
             playerScript = plyer.GetComponent<OOPPlayer>();
 
+            playerScript.Name = playerScore.playerName;
+            
             GameObject exit = PlaceObject(Rows-1, Cols-1, Exit.gameObject, null);
             exitScript = exit.GetComponent<OOPExit>();
             

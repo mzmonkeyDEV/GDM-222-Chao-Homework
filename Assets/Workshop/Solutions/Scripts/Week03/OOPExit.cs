@@ -24,10 +24,10 @@ namespace Solution
                     int scoreReceived = CalculateScore(player);
                     string playerName = player.Name;
 
-                    leaderboard.RecordScore(new PlayerScore(playerName, scoreReceived));
-
+                    PlayerScore data =  new PlayerScore(playerName, scoreReceived);
+                    leaderboard.RecordScore(data);
                     leaderboard.ShowleaderBoard();
-
+                    JsonSaveLoadSystem.SaveGame(data);
                     Debug.Log("You win");
                 }
             }

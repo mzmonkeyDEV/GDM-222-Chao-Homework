@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f68d9ca032a9a5428e03e27b1c0b9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Mzmonkey
+  Name: PumiphonOneTap
   positionX: 0
   positionY: 0
   mapGenerator: {fileID: 0}
