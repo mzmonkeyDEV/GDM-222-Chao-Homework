@@ -1,57 +1,34 @@
 using System.Collections.Generic;
-using NUnit.Framework;
 using UnityEngine;
 
 namespace Solution {
     public class Inventory : MonoBehaviour
     {
-        public Dictionary<ItemData,int> inventory = new Dictionary<ItemData, int>();
 
-        // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+        // เพิ่มไอเท็ม
         public void AddItem(ItemData item, int amount)
         {
-            if (inventory.ContainsKey(item))
-            {
-                inventory[item] += amount;
-            }
-            else
-            {
-                inventory.Add(item,amount);
-            }
-            Debug.Log($"Added {amount} {item.ItemName} Total : {inventory[item]}");
+            
         }
 
-        // ลบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+        // ลบไอเท็ม
         public void UseItem(ItemData item, int amount)
         {
-            if (HasItem(item,amount))
-            {
-                inventory[item] -= amount;
-                if(inventory[item] <= 0)
-                {
-                    inventory.Remove(item);
-                    Debug.Log($"Removed {item.ItemName} from inventory");
-                }
-            }
-            else
-            {
-                Debug.Log("Cannot Remove" + item.ItemName);
-            }
             
         }
         public bool HasItem(ItemData item, int amount)
         {
-            //2. ๏ฟฝ๏ฟฝวจ๏ฟฝอบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในค๏ฟฝัง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝีจำนวน๏ฟฝ๏ฟฝยง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
-            return inventory.ContainsKey(item) && inventory[item] >= amount;
+            //2. ตรวจสอบว่ามีไอเท็มนี้ในคลังหรือไม่ และมีจำนวนเพียงพอหรือไม่
+            return true;
         }
-        // ๏ฟฝ๏ฟฝวจ๏ฟฝอบ๏ฟฝำนวน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+        // ตรวจสอบจำนวนไอเท็ม
         public int GetItemCount(ItemData item)
         {
            
             return 0;
         }
 
-        // ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝยก๏ฟฝรท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในค๏ฟฝัง
+        // แสดงรายการทั้งหมดในคลัง
         public void PrintInventory()
         {
            
