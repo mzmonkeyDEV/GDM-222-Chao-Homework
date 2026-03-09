@@ -7,7 +7,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Assignment04
+namespace Assignment05
 {
     public class Assignment_Testcase
     {
