@@ -340,7 +340,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1488224163377517822}
   npcText: {fileID: 157096262822905596}
   choiceContainer: {fileID: 380234674178960495}
-  choiceButtonPrefab: {fileID: 7844754771363910762, guid: 924d51c4ddd6e1946afe078532babae1, type: 3}
+  choiceButtonPrefab: {fileID: 7844754771363910762, guid: cb94030417eec8249859485502df19fb, type: 3}
   closeButtonDialogue: {fileID: 109345294845966760}
 --- !u!1 &910875641696733837
 GameObject:
@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a6919e8f667fc4c957338eeef0fa34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillBook: {fileID: 0}
+  skillBook: {fileID: 6855237218163089514}
   skillNodePrefab: {fileID: 7379751786708830108, guid: c23e068ca1ff37943ae7eb0944a829a9, type: 3}
   skillNodeContainer: {fileID: 6656426833229144077}
   contentSkill: {fileID: 6656426833229144077}
