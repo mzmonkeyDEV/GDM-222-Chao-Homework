@@ -49,8 +49,8 @@ namespace Solution
                 isFreeze = false;
                 return;
             }
-            int toX = (int)(positionX + direction.x);
-            int toY = (int)(positionY + direction.y);
+            //int toX = (int)(positionX + direction.x);
+            //int toY = (int)(positionY + direction.y);
 
             if (HasPlacement(toX, toY))
             {
@@ -80,10 +80,10 @@ namespace Solution
         {
             
         }
-        public bool HasPlacement(int x, int y)
-        {
-            var cell = mapGenerator.GetMapData(x,y);
-            return cell != null;
+        //public bool HasPlacement(int x, int y)
+        //{
+        //    var cell = mapGenerator.GetMapData(x,y);
+        //    return cell != null;
 
         public virtual void UpdatePosition(int toX, int toY)
         {
