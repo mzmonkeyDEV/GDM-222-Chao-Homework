@@ -19,7 +19,14 @@ namespace Solution
         }
         public override void Hit(Identity identity)
         {
-
+            if (canTalk && identity is OOPPlayer)
+            {
+                Debug.Log("NPC Skill");
+                skillUi.SetActive(true);
+            }
+            else {
+                Debug.Log("I don't need to take to you.");
+            }
         }
     }
 }
