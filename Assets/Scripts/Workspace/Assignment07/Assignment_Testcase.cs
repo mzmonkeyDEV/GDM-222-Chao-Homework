@@ -4,7 +4,7 @@ using NUnit.Framework;
 using NUnit.Framework.Internal;
 using UnityEngine;
 
-namespace Assignment08
+namespace Assignment07
 {
     public class Assignment_Testcase
     {
