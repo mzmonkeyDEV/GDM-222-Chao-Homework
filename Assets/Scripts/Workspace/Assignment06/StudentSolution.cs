@@ -1,5 +1,6 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 using Debug = AssignmentSystem.Services.AssignmentDebugConsole;
 
 namespace Assignment06
@@ -98,17 +99,87 @@ namespace Assignment06
 
         public void AS01_FindFirstAndLastElementOfArray(int[] array, int target)
         {
-            throw new NotImplementedException();
+            int start = -1;
+            int end = -1;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == target)
+                {
+                    if (start == -1) start = i;
+                    end = i;
+                }
+            }
+            if (start == -1 && end == -1)
+            {
+                Debug.Log(start);
+                return;
+            }
+            Debug.Log(start);
+            Debug.Log(end);
         }
 
         public void AS02_FindMaxLessThan(int[] array, int target)
         {
-            throw new NotImplementedException();
+            int temp = target;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] < target)
+                {
+                    if (temp == target)
+                    {
+                        temp = array[i];
+                    }
+                    else if ( array[i] > temp)
+                    {
+                        temp = array[i];
+                    }    
+                    
+                }
+            }
+            if (temp == target)
+            {
+                Debug.Log(-1);
+            }
+            else
+            {
+                Debug.Log(temp);
+            }
         }
 
         public void AS03_FindRange(int[] array, int min, int max)
         {
-            throw new NotImplementedException();
+            int[] sorted = Sort(array);
+
+
+            bool hasValue = false;
+
+            for (int i = 0; i < sorted.Length; i++)
+            {
+                if (sorted[i] >= min && sorted[i] <= max)
+                {
+                    Debug.Log(sorted[i]);
+                    hasValue = true; 
+                }
+            }
+            if (!hasValue)
+            {
+                Debug.Log("Empty");
+            }
+        }
+        public int[] Sort(int[] numbers)
+        {
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                int key = numbers[i];
+                int j = i - 1;
+                while (j >= 0 && numbers[j] > key)
+                {
+                    numbers[j + 1] = numbers[j];
+                    j--;
+                }
+                numbers[j + 1] = key;
+            }
+            return numbers;
         }
 
         #endregion
@@ -117,9 +188,45 @@ namespace Assignment06
 
         public void EX01_FindTargetEnemies(int[] enemyHPs, int mana)
         {
-            throw new NotImplementedException();
-        }
+            int[] sorted = (int[])enemyHPs.Clone();
+            SortAscendingButNoReturn(sorted);
+            int manaLeft = mana;
+            int maxKillableCount = 0;
+            List<int> hpsToKill = new List<int>();
 
+            for (int i = 0; i < sorted.Length; i++)
+            {
+                if (sorted[i] <= manaLeft)
+                {
+                    manaLeft -= sorted[i];
+                    hpsToKill.Add(sorted[i]); 
+                    maxKillableCount++;
+                }
+                else break;
+            }
+            foreach (int hp in enemyHPs)
+            {
+                if (hpsToKill.Contains(hp))
+                {
+                    Debug.Log(hp);
+                    hpsToKill.Remove(hp);
+                }
+            }
+        }
+        public void SortAscendingButNoReturn(int[] numbers)
+        {
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                int key = numbers[i];
+                int j = i - 1;
+                while (j >= 0 && numbers[j] > key)
+                {
+                    numbers[j + 1] = numbers[j];
+                    j--;
+                }
+                numbers[j + 1] = key;
+            }
+        }
         #endregion
     }
 }

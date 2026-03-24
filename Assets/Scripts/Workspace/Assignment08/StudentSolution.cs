@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Debug = AssignmentSystem.Services.AssignmentDebugConsole;
@@ -47,12 +48,40 @@ namespace Assignment08
 
         public void ASN01_ReverseString(string str)
         {
-            throw new NotImplementedException();
+            Stack<string> stack = new Stack<string>();
+            string reversed = "";
+            foreach (char c in str)
+            {
+                stack.Push($"{c}");
+            }
+            while (stack.Count > 0)
+            {
+                reversed += stack.Pop();
+            }
+            Debug.Log(reversed);
         }
 
         public void ASN02_StackPalindrome(string str)
         {
-            throw new NotImplementedException();
+            Stack<string> stack = new Stack<string>();
+            string reversed = "";
+            foreach (char c in str)
+            {
+                stack.Push($"{c}");
+            }
+            while (stack.Count > 0)
+            {
+                reversed += stack.Pop();
+            }
+
+            if (reversed == str)
+            {
+                Debug.Log("is a palindrome");
+            }
+            else
+            {
+                Debug.Log("is not a palindrome");
+            }
         }
 
         #endregion
@@ -61,9 +90,45 @@ namespace Assignment08
 
         public void EX01_ParenthesesChecker(string str)
         {
-            throw new NotImplementedException();
-        }
 
+            Stack<char> stack = new Stack<char>();
+
+            foreach (char c in str)
+            {
+                if (c == '(' || c == '[' || c == '{')
+                {
+                    stack.Push(c);
+                }
+                else if (c == ')' || c == ']' || c == '}')
+                {
+                    if (stack.Count == 0)
+                    {
+                        Debug.Log("Unbalanced");
+                        return;
+                    }
+                    char open = stack.Pop();
+                    if (!IsMatching(open, c))
+                    {
+                        Debug.Log("Unbalanced");
+                        return;
+                    }
+                }
+            }
+            if (stack.Count == 0)
+            {
+                Debug.Log("Balanced");
+            }
+            else
+            {
+                Debug.Log("Unbalanced");
+            }
+        }
+        private bool IsMatching(char open, char close)
+        {
+            return (open == '(' && close == ')') ||
+                   (open == '[' && close == ']') ||
+                   (open == '{' && close == '}');
+        }
         #endregion
     }
 }
