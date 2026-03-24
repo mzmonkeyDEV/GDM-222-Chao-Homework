@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assignment08
+namespace Assignment07
 {
     public interface IAssignment
     {

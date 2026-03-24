@@ -22,7 +22,14 @@ namespace Solution
         }
         public override void Hit(Identity identity)
         {
-
+            if (canTalk && identity is OOPPlayer)
+            {
+                dialogueUI.Setup(sequen);
+                sequen.dialogueUI = dialogueUI;
+            }
+            else {
+                Debug.Log("I don't need to take to you.");
+            }
         }
     }
 

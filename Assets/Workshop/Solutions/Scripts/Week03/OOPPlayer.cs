@@ -35,6 +35,17 @@ namespace Solution
             if (Input.GetKeyDown(KeyCode.E)) {
                 UseFireStorm();
             }
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+            }
+            if (Input.GetKeyDown(KeyCode.Y))
+            {
+            }
+
+            // Input for starting an example auto-move sequence (Q key)
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+            }
         }
 
         public void Attack(OOPEnemy _enemy)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Debug = AssignmentSystem.Services.AssignmentDebugConsole;
 
-namespace Assignment08
+namespace Assignment07
 {
     public class StudentSolution : IAssignment
     {
@@ -18,10 +18,13 @@ namespace Assignment08
         private int Factorial(int n)
         {
             // base case
-
+            if(n <= 1) return 1;
             // recursive case
-
-            return -1;
+            return n * Factorial(n-1);
+            //10 * Factorial(10-1)
+            //9 * Factorial(9-1)
+            //..
+            //1 * Factorial(1-1)
         }
 
         public void LCT02_RecursiveFibonacci(int n)
@@ -33,10 +36,9 @@ namespace Assignment08
         private int Fibonacci(int n)
         {
             // base case
-
+            if(n <= 1) return n;
             // recursive case
-
-            return -1;
+            return Fibonacci(n-1) + Fibonacci(n - 2);
         }
 
         public void LCT03_RecursiveSumOfOneToN(int n)
@@ -48,10 +50,9 @@ namespace Assignment08
         private int SumOfOneToN(int n)
         {
             // base case
-
+            if(n<=0) return 0;
             // recursive case
-
-            return -1;
+            return n + SumOfOneToN(n-1);
         }
 
         public void LCT04_RecursiveSumOfNumbers(int[] numbers)
